@@ -1,0 +1,28 @@
+{{ template "navbar.html" .Nav}}
+<div class="container">
+  <div class="row">
+    <div class="page-header">
+      <h2 class="clearfix">Upcoming
+        <small>shows</small>
+      </h2>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <script type="text/javascript" src="http://www.bandsintown.com/javascripts/bit_widget.js"></script>
+      <a href="http://www.bandsintown.com" class="bit-widget-initializer" data-artist="Run Boy Run" data-bandsintown-footer-link="true" data-share-links="false">Bandsintown</a>
+    </div>
+  </div>
+  {{if .Events.Past}}
+  <div class="row">
+    <div class="page-header clearfix">
+      <h2>Past
+        <small>shows</small>
+        <a class="pull-right" href="http://www.songkick.com/" target="_blank">
+          <img src="/img/songkick.png" width="162" height="42" alt="Concerts by SongKick" />
+        </a>
+      </h2>
+    </div>
+    {{template "past.html" .Events.Past}}
+  </div>
+  {{end}}
+</div>
+

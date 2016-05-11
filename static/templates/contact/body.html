@@ -1,0 +1,18 @@
+{{template "navbar.html" .Nav}}
+<div class="page-header">
+  <h1>Contact <small><span class="rbr">Run Boy Run</span></small></h1>
+</div>
+<div class="fade-back">
+<div class="container">
+  {{range .Contacts}}
+    <div class="row">
+      <h3 class="col-xs-12">{{.Realm}}</h3>
+    </div>
+    <div class="row">
+      {{range .Contact}}
+        {{template "contact.html" .}}
+      {{end}}
+    </div>
+  {{end}}
+</div>
+</div>

@@ -1,0 +1,37 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">Run Boy Run</a>
+  </div>
+
+  <div class="collapse navbar-collapse" id="navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <!-- On-site links -->
+      <li{{if .IsCurrent "/music/"}} class="active"{{end}}><a href="/music/">Music</a></li>
+      <li{{if .IsCurrent "/shows/"}} class="active"{{end}}><a href="/shows/">Shows</a></li>
+      <li{{if .IsCurrent "/photos/"}} class="active"{{end}}><a href="/photos/">Photos</a></li>
+      <li{{if .IsCurrent "/videos/"}} class="active"{{end}}><a href="/videos/">Videos</a></li>
+      <li{{if .IsCurrent "/about/"}} class="active"{{end}}><a href="/about/">About</a></li>
+      <li{{if .IsCurrent "/contact/"}} class="active"{{end}}><a href="/contact/">Contact</a></li>
+      <li class="divider"></li>
+      <!-- Off-site links -->
+      <li><a href="http://eepurl.com/hz2P2" target="_blank">Mailing List</a></li>
+      <li><a href="http://music.runboyrunband.com/merch" target="_blank">Store</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">on… <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="http://runboyrunband.tumblr.com/" target="_blank"><i class="fa fa-fw fa-lg fa-tumblr"></i> tumblr</a>
+          <li><a href="http://twitter.com/runboyrunband" target="_blank"><i class="fa fa-fw fa-lg fa-twitter"></i> twitter</a>
+          <li><a href="http://www.facebook.com/runboyrunband" target="_blank"><i class="fa fa-fw fa-lg fa-facebook"></i> facebook</a>
+          <li><a href="http://instagram.com/runboyrunband" target="_blank"><i class="fa fa-fw fa-lg fa-instagram"></i> instagram</a>
+          <li><a href="http://www.youtube.com/runboyrunband" target="_blank"><i class="fa fa-fw fa-lg fa-youtube"></i> youtube</a>
+        </ul>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>

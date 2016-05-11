@@ -1,0 +1,35 @@
+<div itemscope itemtype="http://schema.org/MusicAlbum" class="album row">
+  <div class="col-xs-12 col-sm-6 col-md-8 album-art">
+    {{if .Image}}
+      {{if .Url}}<a itemprop="url" href="{{.Url}}">{{end}}
+        <img src="{{.Image}}" itemprop="image" alt="{{.Name}}" class="img-thumbnail img-responsive" />
+      {{if .Url}}</a>{{end}}
+    {{end}}
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-4">
+    <h2 class="album-title">
+      {{if .Url}}<a itemprop="url" href="{{.Url}}">{{end}}<span itemprop="name">{{.Name}}</span>{{if .Url}}</a>{{end}}
+      {{with .DatePublished}}<br/><small><time itemprop="datePublished" datetime="{{.Format "2006-01-02T15:04:05Z07:00"}}">{{.Format "January _2, 2006"}}</time></small>{{end}}
+    </h2>
+    {{if .Description}}
+      <div class="album-teaser">{{markdownBasic .Description}}</div>
+    {{end}}
+    {{if .Endorsement}}
+      <div class="album-endorsement">
+        {{range .Endorsement}}
+          <blockquote>
+            {{markdownBasic .Quote}}
+            {{with .Attribution}}
+            <footer><cite title="{{.Name}}"><small>{{if .URL}}<a href="{{.URL}}">{{end}}{{.Name}}{{with .Affiliation}}, {{.}}{{end}}{{if .URL}}</a>{{end}}</small></cite></footer>
+            {{end}}
+          </blockquote>
+        {{end}}
+      </div>
+    {{end}}
+    {{if .BandcampID}}
+      <div class="album-player">
+        <iframe style="border: 0; width: 100%; height: 120px;" src="http://bandcamp.com/EmbeddedPlayer/album={{.BandcampID}}/size=medium/bgcol=ffffff/linkcol=0687f5/artwork=false/transparent=true/" seamless><a href="{{.Url}}">{{.Name}} by Run Boy Run</a></iframe>
+      </div>
+    {{end}}
+  </div>
+</div>

@@ -1,0 +1,15 @@
+{{ template "navbar.html" .Nav}}
+<div class="container">
+  <div class="row">
+    <div class="jumbotron">
+      <div class="row">
+        <h1 class="col-xs-12"><img src="/img/s2s-style-rbr-logo.png" class="center-block img-responsive" alt="Run Boy Run" /></h1>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-4 col-lg-3"><img src="/img/s2s-boat-and-title.png" class="center-block img-responsive" alt="" /></div>
+        <div class="col-xs-12 col-md-8 col-lg-9 rbr-teaser"><hr/>{{markdownBasic .Teaser}}<hr/></div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ template "big-news.html" .BigNews }}

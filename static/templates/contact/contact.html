@@ -1,0 +1,11 @@
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+  {{if .Realm}}<h4>{{.Realm}}</h4>{{end}}
+  {{if .Name}}<h5>{{.Name}}
+    {{with .Affiliation}}<small>{{if .URL}}<a href="{{.URL}}">{{end}}{{.Name}}{{if .URL}}</a>{{end}}</small>{{end}}
+  </h5>{{end}}
+  <address>
+    {{/* We're okay with the extra br because they keep everything even */}}
+    {{if .Email}}{{if .LinkEmail}}<a href="mailto:{{.Email}}">{{.Email}}</a>{{else}}{{cloakEmail .Email "[at]"}}{{end}}{{end}}<br>
+    {{.Telephone}}<br>
+  </address>
+</div>

@@ -1,0 +1,69 @@
+<div class="col-xs-12 col-md-6">
+{{range .}}
+<div itemscope itemtype="http://schema.org/MusicEvent" class="panel panel-default show">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <a target="_blank" href="{{.SameAs}}" itemprop="sameAs"><span itemprop="name">{{.Name}}</span></a>
+    </h3>
+  </div>
+  <div class="panel-body">
+    {{with .Location}}
+      <h5 itemprop="location" itemscope itemtype="http://schema.org/Place">
+        <span class="text-muted">at</span>
+        {{if .SameAs}}<a itemprop="sameAs" target="_blank" href="{{.SameAs}}">{{end}}<span itemprop="name">{{.Name}}</span>{{if .SameAs}}</a>{{end}}
+        {{with .Address}}
+          <span class="text-muted">in</span>
+          <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="addressLocality">{{.AddressLocality}}</span>,
+          <span itemprop="addressRegion">{{.AddressRegion}}</span>{{if .AddressCountry}},
+          <span itemprop="addressCountry">{{.AddressCountry}}</span>{{end}}</span>
+        {{end}}
+        {{with .Geo}}
+          <span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+            <meta itemprop="latitude" content="{{.Lat}}">
+            <meta itemprop="longitude" content="{{.Lng}}">
+          </span>
+        {{end}}
+      </h5>
+    {{end}}
+    <h5>
+    {{/* Concert || (Festival && StartDate.Equal(EndDate) */}}
+    {{if or .Concert (and .Festival (not .Duration)) }}
+      <span class="text-muted">on</span>
+      <time itemprop="startDate" datetime="{{.StartDate.Format "2006-01-02T15:04:05Z07:00"}}">
+        {{.StartDate.Format "Monday, January 2, 2006"}}
+        {{if (not .Festival)}}<span class="text-muted">at</span> {{.StartDate.Format "3:04pm"}}{{end}}
+      </time>
+    {{end}}
+    {{if (and .Festival .Duration)}}
+      <span class="text-muted">from</span>
+      {{with .StartDate}}
+        <time itemprop="startDate" datetime="{{.Format "2006-01-02T15:04:05Z07:00"}}">
+          {{.Format "Monday, January 2, 2006"}}
+        </time>
+      {{end}}
+      <span class="text-muted">to</span>
+      {{with .EndDate}}
+        <time itemprop="endDate" datetime="{{.Format "2006-01-02T15:04:05Z07:00"}}">
+          {{.Format "Monday, January 2, 2006"}}
+        </time>
+      {{end}}
+    {{end}}
+    </h5>
+  </div>
+  {{if (not .Solo)}}
+    <div class="panel-footer clearfix">
+      <ul class="list-inline">
+        <li><strong>Featuring</strong></li>
+        {{range .Performer}}
+          <li itemprop="performer" itemscope itemtype="http://schema.org/MusicGroup">
+          {{if .SameAs}}<a href="{{.SameAs}}" target="_blank" itemprop="sameAs">{{end}}<span itemprop="name">{{.Name}}</span>{{if .SameAs}}</a>{{end}}
+          </li>
+        {{end}}
+      </ul>
+    </div>
+  {{end}}
+</div>
+{{else}}
+<h3>Looks like there are no upcoming shows on the calendar. Please check again in the future, or sign up for our mailing list to find out when Run Boy Run will be playing near you.</h3>
+{{end}}
+</div>

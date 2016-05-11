@@ -1,0 +1,34 @@
+<div class="col-xs-12"><ul class="list-group">
+{{range .}}
+  <li itemscope itemtype="http://schema.org/MusicEvent" class="past-show list-group-item row">
+    <p class="lead">
+      {{/* Concert || (Festival && StartDate.Equal(EndDate) */}}
+      {{if or .Concert (and .Festival (not .Duration)) }}
+        <span class="label label-default"><time itemprop="startDate" datetime="{{.StartDate.Format "2006-01-02T15:04:05Z07:00"}}">{{.StartDate.Format "Jan 2, 2006"}}</time></span>
+      {{end}}
+      {{if (and .Festival .Duration)}}
+        <span class="label label-default">{{with .StartDate}}<time itemprop="startDate" datetime="{{.Format "2006-01-02T15:04:05Z07:00"}}">{{.Format "Jan 2, 2006"}}</time>{{end}}
+          &ndash; {{with .EndDate}}<time itemprop="endDate" datetime="{{.Format "2006-01-02T15:04:05Z07:00"}}">{{.Format "Jan 2, 2006"}}</time>{{end}}</span>
+      {{end}}
+      <span class="label label-default">{{.Location.Address.AddressLocality}}, {{.Location.Address.AddressRegion}}</span>
+      <a target="_blank" href="{{.SameAs}}" itemprop="sameAs"><span itemprop="name">{{.Name}}</span></a>
+    </p>
+    {{with .Location.Geo}}
+      <span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+        <meta itemprop="latitude" content="{{.Lat}}">
+        <meta itemprop="longitude" content="{{.Lng}}">
+      </span>
+    {{end}}
+    {{if (not .Solo)}}
+      <ul class="list-inline">
+        <li><strong>Featuring</strong></li>
+        {{range .Performer}}
+          <li itemprop="performer" itemscope itemtype="http://schema.org/MusicGroup">
+            {{if .SameAs}}<a href="{{.SameAs}}" target="_blank" itemprop="sameAs">{{end}}<span itemprop="name">{{.Name}}</span>{{if .SameAs}}</a>{{end}}
+          </li>
+        {{end}}
+      </ul>
+    {{end}}
+  </li>
+{{end}}
+</ul></div>

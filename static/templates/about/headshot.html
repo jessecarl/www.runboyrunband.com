@@ -1,0 +1,7 @@
+<div class="headshot media well-sm well">
+  <img class="media-object pull-{{if eq .Looking "left"}}right{{else}}left{{end}} img-responsive" src="{{.Image}}" alt="{{.Name}}" />
+  <div class="media-body text-{{if eq .Looking "left"}}right{{else}}left{{end}}">
+    <h5>{{.Name}}</h5>
+    <h6>{{.Plays}}</h6>
+  </div>
+</div>

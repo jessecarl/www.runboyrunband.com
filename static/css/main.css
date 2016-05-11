@@ -1,0 +1,148 @@
+/**
+ * Custom Styling
+ */
+
+
+@font-face {
+    font-family: 'IM Fell Great Primer';
+    src: url('/fonts/imfgprm-rg.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'IM Fell Great Primer';
+    src: url('/fonts/imfgprm-sc.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'IM Fell Great Primer';
+    src: url('/fonts/imfgprm-it.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+body {
+  padding-top: 70px;
+  padding-bottom: 400px;
+  background: #fff url(/img/bg-768.jpg) no-repeat bottom center;
+  background-size: 100% auto;
+  font-family: 'IM Fell Great Primer', Georgia, 'Times New Roman', serif;
+}
+
+h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6 {
+  font-family: 'IM Fell Great Primer', Georgia, 'Times New Roman', serif;
+}
+
+.home {
+  background-image: url(/img/bg-color-768.jpg);
+}
+
+.fade-back {
+  padding-bottom: 100px;
+  background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 90%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(50%,rgba(255,255,255,1)), color-stop(90%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 90%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 90%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 90%,rgba(255,255,255,0) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 90%,rgba(255,255,255,0) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  body {
+    padding-bottom: 500px;
+    background-image: url(/img/bg-992.jpg);
+  }
+  .home {
+    background-image: url(/img/bg-color-992.jpg);
+  }
+  .fade-back {
+    padding-bottom: 150px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  body {
+    padding-bottom: 600px;
+    background-image: url(/img/bg-1200.jpg);
+  }
+  .home {
+    background-image: url(/img/bg-color-1200.jpg);
+  }
+  .fade-back {
+    padding-bottom: 200px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    padding-bottom: 800px;
+    background-image: url(/img/bg-2400.jpg);
+  }
+  .home {
+    background-image: url(/img/bg-color-2400.jpg);
+  }
+  .fade-back {
+    padding-bottom: 300px;
+  }
+}
+
+.home .jumbotron {
+  background-color: rgba(250, 250, 250, 0.6);
+}
+.home .jumbotron img {
+	padding: 2%;
+}
+.home .thumbnail.flyer.portrait {
+  max-width: 600px;
+}
+.home .thumbnail.flyer.landscape {
+  max-width: 900px;
+}
+.home .rbr-teaser {
+  font-style: italic;
+  text-align: center;
+}
+
+.album {
+  margin-bottom: 15px;
+}
+
+.album-title {
+  margin-top: 0;
+}
+
+.album-teaser {
+}
+
+.album-endorsement blockquote {
+  border: 0 none;
+  padding: 0;
+}
+.album-endorsement p {
+  font-style: italic;
+  font-size: 1.1em;
+}
+.album-endorsement footer cite small {
+  font-size: 1em;
+}
+
+.show ul {
+  margin-bottom: 0;
+}
+
+.show h3 a,
+.past-show .lead a {
+  padding-right: 20px;
+  background: url(/img/sk-badge.png) no-repeat right center;
+  color: black;
+}
+
+.past-show .lead {
+  line-height: 1.5;
+}
+
