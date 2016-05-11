@@ -12,8 +12,7 @@ import (
 	"strings"
 	"time"
 
-	// TODO [jesse@jessecarl.com]: Move this dependency to a public repo
-	"runboyrunband.com/www/shows"
+	"github.com/jessecarl/www.runboyrunband.com/shows"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
